@@ -1,7 +1,7 @@
 import smtplib, ssl
 
 
-def send_mail(email_address, message):
+def send_mail(message):
     username = "muralimano86@gmail.com"
     password = "yjfqvoqtuvatxizd"
 
@@ -12,11 +12,6 @@ def send_mail(email_address, message):
 
     context = ssl.create_default_context()
 
-    message = f"""\
-Subject: {email_address}
-{message}
-"""
-
     with smtplib.SMTP_SSL(host, port, context=context) as server:
         server.login(username, password)
         server.sendmail(username, receiver, message)
@@ -24,8 +19,9 @@ Subject: {email_address}
 
 if __name__ == "__main__":
     email_address = "hemalinivaithy@gmail.com"
-    message = """
-    How are you?
-    Bye!
-    """
-    send_mail(email_address, message)
+    message = f"""\
+Subject: {email_address}
+How are you?
+Bye!
+"""
+    send_mail(message)
