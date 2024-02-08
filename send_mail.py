@@ -3,7 +3,7 @@ import smtplib, ssl
 
 def send_mail(message):
     username = "muralimano86@gmail.com"
-    password = "yjfqvoqtuvatxizd"
+    password = os.getenv('GMAILPASSWORD')
 
     receiver = "muralimano86@gmail.com"
 
